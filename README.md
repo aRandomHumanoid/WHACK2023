@@ -1,3 +1,0 @@
-# WHACK2023
-
-HAIII

@@ -5,35 +5,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/8728145df1.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <header id="nav-bar"></header>
+    <!-- Navbar -->
+    <header id="nav-bar">
+      <div>..</div>
+      <div>...</div>
+      <div>...</div>
+      <div>...</div>
+    </header>
+    <!-- Main Content -->
     <div id="main-container">
       <div id="left-container">
-        <p>Hello!</p>
-        <h1>Welcome to [NAME] your hub for cultural events in your area</h1>
+        <p id="hello">Hello!</p>
+        <h1>
+          Welcome to <span class="bold">CulturaHub</span>, your hub for cultural
+          events in your area
+        </h1>
       </div>
       <div id="right-container">
         <div id="login-shell">
           <div id="profile-cirlce">
-            <div id="body"></div>
+            <svg
+              id="body"
+              viewBox="0 0 145 145"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="Mask group">
+                <mask
+                  id="mask0_2_32"
+                  style="mask-type: alpha"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="145"
+                  height="145"
+                >
+                  <circle
+                    id="Ellipse 2"
+                    cx="72.5"
+                    cy="72.5"
+                    r="72.5"
+                    fill="#D9D9D9"
+                  />
+                </mask>
+                <g mask="url(#mask0_2_32)">
+                  <g id="Rectangle 4" filter="url(#filter0_d_2_32)">
+                    <rect
+                      x="17"
+                      y="75"
+                      width="111"
+                      height="108"
+                      rx="40"
+                      fill="#676161"
+                    />
+                  </g>
+                </g>
+              </g>
+              <defs>
+                <filter
+                  id="filter0_d_2_32"
+                  x="13"
+                  y="75"
+                  width="119"
+                  height="116"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow_2_32"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="effect1_dropShadow_2_32"
+                    result="shape"
+                  />
+                </filter>
+              </defs>
+            </svg>
             <div id="head"></div>
           </div>
-          <div id="username-shell" class="profile-form">
-            <label>username</label>
-            <input />
-          </div>
-          <div id="password-shell" class="profile-form">
-            <label>password</label>
-            <input />
-          </div>
+          <form id="input-form">
+            <div id="username-shell" class="profile-form">
+              <label></label>
+              <div id="input-div">
+                <input id="username" type="text" placeholder="enter username" />
+              </div>
+            </div>
+            <div id="password-shell" class="profile-form">
+              <label></label>
+              <div id="input-div">
+                <input type="password" placeholder="enter password" />
+              </div>
+            </div>
+          </form>
           <div id="options-container">
             <button>Sign Up</button>
-            <button>Continue as a Guest</button>
+            <button onclick="scrollToButtons()">Continue as a Guest</button>
+            <button>Forgot Password</button>
           </div>
         </div>
       </div>
     </div>
-    <footer id="info-footer"></footer>
+    <div id="second-page">
+      <div></div>
+      <div id="question-prompt-container">
+        <button id="browsing" class="opening-prompt">Just Browsing!</button>
+        <button
+          id="post-an-event"
+          class="opening-prompt"
+          onclick="goToPostForm()"
+        >
+          Host Event!
+        </button>
+      </div>
+    </div>
+    <div id="post-form-container">
+      <form id="post-form">
+        <label for="title">
+          Event Name
+          <br />
+          <input placeholder="enter event name..." type="text" id="title" />
+        </label>
+        <label>
+          Organizer
+          <br />
+          <input
+            placeholder="enter organizer name(s)..."
+            type="text"
+            id="author"
+          />
+        </label>
+        <label>
+          Location
+          <br />
+          <input
+            placeholder="enter event location..."
+            type="text"
+            id="location"
+          />
+        </label>
+        <label>
+          Description
+          <br />
+          <textarea
+            placeholder="give a short description of your event..."
+            rows="5"
+            cols="10"
+            id="description"
+          ></textarea>
+        </label>
+        <label id="image-label" for="image"
+          >Select Image
+          <i class="fa-regular fa-image" style="color: #ffffff" id="iconi"></i>
+          <input type="file" id="image" />
+        </label>
+        <label id="submit">
+          <input type="submit" />
+        </label>
+      </form>
+    </div>
+    <div id="calendar-container">
+      <table id="calendar-table">
+        <tr>
+          <th>Date</th>
+          <th>Festival Name</th>
+          <th>Region</th>
+          <th>Type</th>
+        </tr>
+        <div onlick="squishCal()">
+          <tr>
+            <td>Example Name</td>
+            <td>Example Festival</td>
+            <td>Example Region</td>
+            <td>N/A</td>
+          </tr>
+        </div>
+        <tr>
+          <td>Example Name</td>
+          <td>Example Festival</td>
+          <td>Example Region</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Example Name</td>
+          <td>Example Festival</td>
+          <td>Example Region</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Example Name</td>
+          <td>Example Festival</td>
+          <td>Example Region</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Example Name</td>
+          <td>Example Festival</td>
+          <td>Example Region</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Example Name</td>
+          <td>Example Festival</td>
+          <td>Example Region</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Example Name</td>
+          <td>Example Festival</td>
+          <td>Example Region</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Example Name</td>
+          <td>Example Festival</td>
+          <td>Example Region</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Example Name</td>
+          <td>Example Festival</td>
+          <td>Example Region</td>
+          <td>N/A</td>
+        </tr>
+      </table>
+    </div>
+    <!-- <footer id="info-footer"></footer> -->
   </body>
 </html>
